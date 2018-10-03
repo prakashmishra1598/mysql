@@ -1,5 +1,5 @@
-hash: 570e3626412f9ee2a37946a10c29c9b6f9895353739ef4aef8247e6b76d9be43
-updated: 2018-10-03T04:51:16.476731266-07:00
+hash: 7ccabc2d20b654ee9d26cb3d4003d18c0fc59b91c5e549ed77b78a66bb7696c3
+updated: 2018-10-03T17:01:39.399588823-07:00
 imports:
 - name: bitbucket.org/ww/goautoneg
   version: 75cd24fc2f2c2a2088577d12123ddee5f54e0675
@@ -326,7 +326,7 @@ imports:
 - name: github.com/json-iterator/go
   version: 1624edc4454b8682399def8740d46db5e4362ba4
 - name: github.com/kubedb/apimachinery
-  version: fcb7be1a808ff19e75c06a414a13503b1dbd5d8f
+  version: 6374e91bae7b503a0bab710dacac5757f94f0762
   subpackages:
   - apis
   - apis/authorization
@@ -983,11 +983,10 @@ imports:
   - pkg/util
   - pkg/util/proto
 - name: kmodules.xyz/custom-resources
-  version: 729e3de8c1075db502f1edc332ebdabde7f56d09
+  version: 096f21cfaff6aca79255cda79fb4e23cd6386096
   repo: https://github.com/kmodules/custom-resources.git
   vcs: git
   subpackages:
-  - apis
   - apis/appcatalog
   - apis/appcatalog/v1alpha1
   - client/clientset/versioned/scheme
