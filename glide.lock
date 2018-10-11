@@ -1,5 +1,5 @@
-hash: 570e3626412f9ee2a37946a10c29c9b6f9895353739ef4aef8247e6b76d9be43
-updated: 2018-10-03T04:51:16.476731266-07:00
+hash: e543a6e8487cd16a14b04dd2fcd9d6ea7ae6fc7c1bc7c53813e86a5146acb378
+updated: 2018-10-11T00:21:08.50691144-07:00
 imports:
 - name: bitbucket.org/ww/goautoneg
   version: 75cd24fc2f2c2a2088577d12123ddee5f54e0675
@@ -20,6 +20,7 @@ imports:
   - homedir
   - log
   - log/golog
+  - net
   - runtime
   - sets
   - strings
@@ -35,9 +36,11 @@ imports:
   - admission/v1beta1
   - registry/admissionreview/v1beta1
 - name: github.com/appscode/kutil
-  version: ab4a23e683a5b1c2d7f23f49b30c0316de8c7f94
+  version: cbd53e2bd56256ebdbc5d9e2b33e68dfebcc5f7c
   subpackages:
+  - admissionregistration/v1beta1
   - apiextensions/v1beta1
+  - apiregistration/v1beta1
   - apps/v1
   - core/v1
   - discovery
@@ -47,6 +50,7 @@ imports:
   - tools/clientcmd
   - tools/portforward
   - tools/queue
+  - tools/watch
 - name: github.com/appscode/mergo
   version: 9f23e2d6bd2a77f959b2bf6acdbefd708a83a4a4
 - name: github.com/appscode/ocutil
@@ -199,7 +203,7 @@ imports:
   subpackages:
   - md2man
 - name: github.com/davecgh/go-spew
-  version: 5215b55f46b2b919f50a1df0eaa5886afe4e3b3d
+  version: 782f4967f2dc4564575ca782fe2d04090b5faca8
   subpackages:
   - spew
 - name: github.com/dgrijalva/jwt-go
@@ -217,9 +221,9 @@ imports:
 - name: github.com/emicklei/go-restful-swagger12
   version: dcef7f55730566d41eae5db10e7d6981829720f6
 - name: github.com/evanphx/json-patch
-  version: 94e38aa1586e8a6c8a75770bddf5ff84c48a106b
+  version: afac545df32f2287a079e2dfb7ba2745a643747e
 - name: github.com/fatih/structs
-  version: 4966fc68f5b7593aafa6cbbba2d65ec6e1416047
+  version: 878a968ab22548362a09bdb3322f98b00f470d46
 - name: github.com/ghodss/yaml
   version: 0ca9ea5df5451ffdf184b4428c902747c2c11cd7
 - name: github.com/go-ini/ini
@@ -235,7 +239,7 @@ imports:
 - name: github.com/go-sql-driver/mysql
   version: d523deb1b23d913de5bdada721a6071e71283618
 - name: github.com/go-xorm/builder
-  version: 145c9968bfe732a56d7160439d25154c5aaa2f35
+  version: ef80bec6771b66907d34a878fe8b3914b9f5cda8
 - name: github.com/go-xorm/core
   version: c10e21e7e1cec20e09398f2dfae385e58c8df555
 - name: github.com/go-xorm/xorm
@@ -326,7 +330,7 @@ imports:
 - name: github.com/json-iterator/go
   version: 1624edc4454b8682399def8740d46db5e4362ba4
 - name: github.com/kubedb/apimachinery
-  version: fcb7be1a808ff19e75c06a414a13503b1dbd5d8f
+  version: 12e491f3b367e5c281735fe89e961cd7ebabe1ed
   subpackages:
   - apis
   - apis/authorization
@@ -462,7 +466,7 @@ imports:
 - name: github.com/russross/blackfriday
   version: 4048872b16cc0fc2c5fd9eacf0ed2c2fedaa0c8c
 - name: github.com/satori/go.uuid
-  version: 879c5887cd475cd7864858769793b2ceb0d44feb
+  version: 36e9d2ebbde5e3f13ab2e25625fd453271d6522e
 - name: github.com/sergi/go-diff
   version: 97b2266dfe4bd4ea1b81a463322f04f8b724801e
   subpackages:
@@ -544,14 +548,14 @@ imports:
   subpackages:
   - rate
 - name: google.golang.org/api
-  version: f5c49d98d21cc639f7ba8c7e4b127e88ee2af7ed
+  version: ce4acf611b3920b111e21272a15ddaea10c1fd2e
   subpackages:
   - gensupport
   - googleapi
   - googleapi/internal/uritemplates
   - storage/v1
 - name: google.golang.org/appengine
-  version: 12d5545dc1cfa6047a286d5e853841b6471f4c19
+  version: ae0ab99deb4dc413a2b4bd6c8bdd0eb67f1e4d06
   subpackages:
   - cloudsql
   - internal
@@ -601,7 +605,7 @@ imports:
 - name: gopkg.in/tomb.v1
   version: c131134a1947e9afd9cecfe11f4c6dff0732ae58
 - name: gopkg.in/yaml.v2
-  version: 53feefa2559fb8dfa8d81baad31be332c97d6c77
+  version: 670d4cfef0544295bc27a114dbac37980d83185a
 - name: k8s.io/api
   version: 4e7be11eab3ffcfc1876898b8272df53785a9504
   subpackages:
@@ -700,7 +704,7 @@ imports:
   - third_party/forked/golang/netutil
   - third_party/forked/golang/reflect
 - name: k8s.io/apiserver
-  version: 9970aee1898bc65beb8f3829b2ddf8e191777f78
+  version: dea48c5b25a85e0fa07fec5bd5b8ec8fcaae6653
   repo: https://github.com/pharmer/apiserver.git
   vcs: git
   subpackages:
@@ -983,16 +987,14 @@ imports:
   - pkg/util
   - pkg/util/proto
 - name: kmodules.xyz/custom-resources
-  version: 729e3de8c1075db502f1edc332ebdabde7f56d09
+  version: ad163b0888db79656ef85ffea3c2661cad8c4f5e
   repo: https://github.com/kmodules/custom-resources.git
   vcs: git
   subpackages:
-  - apis
   - apis/appcatalog
   - apis/appcatalog/v1alpha1
   - client/clientset/versioned/scheme
   - client/clientset/versioned/typed/appcatalog/v1alpha1
-  - client/clientset/versioned/typed/appcatalog/v1alpha1/util
 - name: kmodules.xyz/monitoring-agent-api
   version: 00cac08cb50defd6df8d08483fad35df790d7675
   repo: https://github.com/kmodules/monitoring-agent-api.git
